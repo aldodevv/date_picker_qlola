@@ -226,15 +226,11 @@ class DaysView extends StatelessWidget {
         }
 
         if (isCurrent) {
-          //
-          //
           style = currentDateTextStyle;
           decoration = currentDateDecoration;
         }
 
         if (isSelectedDay) {
-          //
-          //
           style = selectedDayTextStyle;
           decoration = selectedDayDecoration;
         }
@@ -244,13 +240,10 @@ class DaysView extends StatelessWidget {
           decoration = disabledCellsDecoration;
         }
 
-        if (isCurrent && isDisabled) {
-          //
-          //
+        if (!isWeekend && isCurrent && isDisabled) {
           style = disabledCellsTextStyle;
           decoration = currentDateDecoration;
         }
-
         Widget dayWidget = Container(
           decoration: decoration,
           child: Center(

@@ -276,42 +276,36 @@ class RangeDaysView extends StatelessWidget {
         final isEndDate = DateUtils.isSameDay(selectedEndDateOnly, dayToBuild);
 
         final bool isCurrent = DateUtils.isSameDay(currentDate, dayToBuild);
-        //
-        //
+        final bool isWeekend = dayToBuild.weekday == DateTime.saturday || dayToBuild.weekday == DateTime.sunday;
+
         BoxDecoration decoration = enabledCellsDecoration;
         TextStyle style = enabledCellsTextStyle;
 
+        if (isWeekend && weekendTextStyle != null) {
+          style = weekendTextStyle!;
+        }
+
         if (isCurrent) {
-          //
-          //
           style = currentDateTextStyle;
           decoration = currentDateDecoration;
         }
 
         if (isSingleCellSelected || isStartDate || isEndDate) {
-          //
-          //
           style = singleSelectedCellTextStyle;
           decoration = singleSelectedCellDecoration;
         }
 
         if (isWithinRange) {
-          //
-          //
           style = selectedCellsTextStyle;
           decoration = selectedCellsDecoration;
         }
 
         if (isDisabled) {
-          //
-          //
           style = disabledCellsTextStyle;
           decoration = disabledCellsDecoration;
         }
 
-        if (isCurrent && isDisabled) {
-          //
-          //
+        if (!isWeekend && isCurrent && isDisabled) {
           style = disabledCellsTextStyle;
           decoration = currentDateDecoration;
         }
