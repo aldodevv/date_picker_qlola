@@ -1,5 +1,12 @@
 [![Tests](https://github.com/hasanmhallak/date_picker/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/hasanmhallak/date_picker/actions/workflows/tests.yml)
 
+# Update Package from upstream
+git remote add upstream https://github.com/hasanmhallak/date_picker.git
+
+- git fetch upstream
+- git merge upstream/master
+Optional : 
+- git pull upstream master
 # Date Picker Plus
 
 A Flutter library that provides a customizable Material Design date and range picker widgets.
