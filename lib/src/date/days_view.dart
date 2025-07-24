@@ -37,6 +37,7 @@ class DaysView extends StatelessWidget {
     required this.splashColor,
     this.splashRadius,
     this.disabledDayPredicate,
+    this.weekendTextStyle,
   }) {
     assert(!minDate.isAfter(maxDate), "minDate can't be after maxDate");
 
@@ -128,6 +129,11 @@ class DaysView extends StatelessWidget {
   /// A predicate function used to determine if a given day should be disabled.
   final DatePredicate? disabledDayPredicate;
 
+  /// The text style for weekend cells.
+  final TextStyle? weekendTextStyle;
+
+  /// The text style for weekend cells.
+
   /// Builds widgets showing abbreviated days of week. The first widget in the
   /// returned list corresponds to the first day of week for the current locale.
   ///
@@ -210,8 +216,14 @@ class DaysView extends StatelessWidget {
         final bool isCurrent = DateUtils.isSameDay(currentDate, dayToBuild);
         //
         //
+        final bool isWeekend = dayToBuild.weekday == DateTime.saturday || dayToBuild.weekday == DateTime.sunday;
+
         BoxDecoration decoration = enabledCellsDecoration;
         TextStyle style = enabledCellsTextStyle;
+
+        if (isWeekend && weekendTextStyle != null) {
+          style = weekendTextStyle!;
+        }
 
         if (isCurrent) {
           //

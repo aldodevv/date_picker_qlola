@@ -80,6 +80,7 @@ class DatePicker extends StatefulWidget {
     this.previousPageSemanticLabel,
     this.nextPageSemanticLabel,
     this.disabledDayPredicate,
+    this.weekendTextStyle,
   }) {
     assert(!minDate.isAfter(maxDate), "minDate can't be after maxDate");
   }
@@ -229,6 +230,8 @@ class DatePicker extends StatefulWidget {
   /// A predicate function used to determine if a given day should be disabled.
   final DatePredicate? disabledDayPredicate;
 
+  final TextStyle? weekendTextStyle;
+
   @override
   State<DatePicker> createState() => _DatePickerState();
 }
@@ -297,6 +300,7 @@ class _DatePickerState extends State<DatePicker> {
             previousPageSemanticLabel: widget.previousPageSemanticLabel,
             nextPageSemanticLabel: widget.nextPageSemanticLabel,
             disabledDayPredicate: widget.disabledDayPredicate,
+            weekendTextStyle: widget.weekendTextStyle,
             onLeadingDateTap: () {
               setState(() {
                 _pickerType = PickerType.months;

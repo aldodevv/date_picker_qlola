@@ -82,6 +82,7 @@ class RangeDatePicker extends StatefulWidget {
     this.centerLeadingDate = false,
     this.previousPageSemanticLabel,
     this.nextPageSemanticLabel,
+    this.weekendTextStyle,
   }) {
     assert(!minDate.isAfter(maxDate), "minDate can't be after maxDate");
   }
@@ -261,6 +262,9 @@ class RangeDatePicker extends StatefulWidget {
   ///
   /// defaults to `Next Day/Month/Year` according to picker type.
   final String? nextPageSemanticLabel;
+
+  /// The text style for weekend cells.
+  final TextStyle? weekendTextStyle;
 
   @override
   State<RangeDatePicker> createState() => _RangeDatePickerState();
